@@ -29,4 +29,6 @@ public class Enemy : MonoBehaviour
     {
         Debug.Log($"{enemyName} took damage!");
     }
+
+    public string GetEnemyName() => enemyName;
 }
