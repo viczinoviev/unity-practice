@@ -7,4 +7,10 @@ public class EnemyGoblin : Enemy
     {
         Debug.Log($"{enemyName} is stealing money!");
     }
+
+    protected override void Attack()
+    {
+        base.Attack();
+        StealMoney();
+    }
 }

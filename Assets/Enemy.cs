@@ -20,7 +20,7 @@ public class Enemy : MonoBehaviour
         Debug.Log($"{enemyName} is moving at speed {moveSpeed}");
     }
 
-    private void Attack()
+    protected virtual void Attack()
     {
         Debug.Log($"{enemyName} is attacking!");
     }
