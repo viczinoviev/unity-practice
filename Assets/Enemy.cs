@@ -2,41 +2,31 @@ using UnityEngine;
 
 public class Enemy : MonoBehaviour
 {
-    private SpriteRenderer sr;
-    private float damageTime = 0.1f;
+    [SerializeField] protected float moveSpeed;
+    [SerializeField] protected string enemyName;
 
-    [SerializeField]private float redColorDuration = 1;
-
-    public float currentTimeInGame;
-    public float lastTimeDamaged;
-
-    private void Awake()
-    {
-        sr = GetComponent<SpriteRenderer>();
-    }
 
     private void Update()
     {
-        currentTimeInGame = Time.time;
+        MoveAround();
 
-        if (currentTimeInGame > lastTimeDamaged + redColorDuration)
+        if (Input.GetKeyDown(KeyCode.F))
         {
-            if (sr.color != Color.white)
-            {
-                TurnWhite();
-            }
+            Attack();
         }
+    }
+    private void MoveAround()
+    {
+        Debug.Log($"{enemyName} is moving at speed {moveSpeed}");
+    }
+
+    private void Attack()
+    {
+        Debug.Log($"{enemyName} is attacking!");
     }
 
     public void TakeDamage()
     {
-        sr.color = Color.red;
-        lastTimeDamaged = Time.time;
+        Debug.Log($"{enemyName} took damage!");
     }
-
-    private void TurnWhite()
-    {
-        sr.color = Color.white;
-    }
-    
 }
